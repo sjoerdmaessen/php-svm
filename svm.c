@@ -1,6 +1,6 @@
 /*
   +----------------------------------------------------------------------+
-  | PHP Version 5 / svm                                                  |
+  | PHP Version 7 / svm                                                  |
   +----------------------------------------------------------------------+
   | Copyright (c) 2010 Ian Barber                                        |
   +----------------------------------------------------------------------+
@@ -200,7 +200,7 @@ static zend_bool php_svm_stream_to_array(php_svm_object *intern, php_stream *str
 
 			/* The label */
 			MAKE_STD_ZVAL(pz_label);
-			ZVAL_STRING(pz_label, label, 1);
+			ZVAL_STRING(pz_label, label);
 			convert_to_double(pz_label);
 
 			/* Label is the first item in the line array */
@@ -221,11 +221,11 @@ static zend_bool php_svm_stream_to_array(php_svm_object *intern, php_stream *str
 				
 				/* Make zvals and convert to correct types */
 				MAKE_STD_ZVAL(pz_idx);
-				ZVAL_STRING(pz_idx, idx, 1);
+				ZVAL_STRING(pz_idx, idx);
 				convert_to_long(pz_idx);
 				
 				MAKE_STD_ZVAL(pz_value);
-				ZVAL_STRING(pz_value, value, 1);
+				ZVAL_STRING(pz_value, value);
 				convert_to_double(pz_value);
 				
 				add_index_zval(line_array, Z_LVAL_P(pz_idx), pz_value);
